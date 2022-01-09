@@ -1,9 +1,7 @@
 function love.load()
 	require('src/startup')
-    	startup()
+  startup()
 
-	ent_w1 = tiny.world(player)
-	
 end
 
 function love.update(dt)
@@ -14,12 +12,14 @@ function love.update(dt)
 
 	cam:update(dt)
 
-    	cam:follow(player.collider:getX(), player.collider:getY())
+	hud:update(dt)
+
+	cam:follow(player.collider:getX(), player.collider:getY())
 
 	cam:setFollowLerp(0.2)
-    	
-	cam:setFollowStyle('SCREEN_BY_SCREEN')
-	
+
+	cam:setFollowStyle('LOCKON')
+
 	debug:update(dt)
 
 end
@@ -29,14 +29,15 @@ function love.draw()
 	cam:attach()
 	love.graphics.push()
 		love.graphics.scale(size, size)
-			map.world1:drawLayer(map.world1.layers["bg"], 0)
-			map.world1:drawLayer(map.world1.layers["fg"], 0)
+			map.world1:drawLayer(map.world1.layers["bg"], 0, size)
+			map.world1:drawLayer(map.world1.layers["fg"], 0, size)
 	love.graphics.pop()
 
-		sprite.player.current:draw(sprite.player.walkSheet, player.collider:getX(), player.collider:getY(), 0, size, size, 12, 22)
+		player:draw()
 
-		wf_world:draw()
-
+		if debug.isOn == true then
+			wf_world:draw()
+		end
 	cam:detach()
 
 	hud:draw()

@@ -1,6 +1,6 @@
   function startup()
 
-	size = 3
+	size = 4
 	love.window.setMode(320 * size, 180 * size)
 	love.graphics.setDefaultFilter('nearest', 'nearest')
 
@@ -14,7 +14,6 @@
 	wf = require("../lib/windfield")
 	camera = require('../lib/camera')
 	g3d = require('../lib/g3d')
-	tiny = require('../lib/tiny')
 	require('../lib/scene_menager')
 	Scene:unload()
 	cam = camera()

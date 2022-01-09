@@ -2,20 +2,22 @@
 sprite = {}
 -- Player related sprites
 sprite.player = {}
-sprite.player.shadow = love.graphics.newImage('as/img/player/shadow.png')
-sprite.player.smokeSheet = love.graphics.newImage('as/img/player/smoke.png')
-sprite.player.smokeGrid = anim8.newGrid(12, 12, sprite.player.smokeSheet:getWidth(),
-    sprite.player.smokeSheet:getHeight())
-sprite.player.smokeAnimCycle = 0.05
-sprite.player.smokeMain = anim8.newAnimation(sprite.player.smokeGrid('1-4', 1), sprite.player.smokeAnimCycle)
-sprite.player.smoke = sprite.player.smokeMain
-sprite.player.walkSheet = love.graphics.newImage('/as/img/player/lucio/mainWalkSheet.png')
-sprite.player.walkGrid = anim8.newGrid(24, 44, sprite.player.walkSheet:getWidth(), sprite.player.walkSheet:getHeight())
-sprite.player.animCycle = 0.1
-sprite.player.walkL = anim8.newAnimation(sprite.player.walkGrid('1-6', 3), sprite.player.animCycle)
-sprite.player.walkR = anim8.newAnimation(sprite.player.walkGrid('1-6', 2), sprite.player.animCycle)
-sprite.player.walkU = anim8.newAnimation(sprite.player.walkGrid('1-6', 4), sprite.player.animCycle)
-sprite.player.walkD = anim8.newAnimation(sprite.player.walkGrid('1-6', 1), sprite.player.animCycle)
+sprite.player.sheet = love.graphics.newImage('/as/img/player/lucio/sheet.png')
+sprite.player.sheetGrid = anim8.newGrid(32, 40, sprite.player.sheet:getWidth(), sprite.player.sheet:getHeight())
+sprite.player.animCycle = 0.05
+--Walk Animations
+sprite.player.walkL = anim8.newAnimation(sprite.player.sheetGrid('1-12', 1), sprite.player.animCycle)
+sprite.player.walkR = anim8.newAnimation(sprite.player.sheetGrid('1-12', 2), sprite.player.animCycle)
+sprite.player.walkU = anim8.newAnimation(sprite.player.sheetGrid('1-7', 3), sprite.player.animCycle * 2)
+sprite.player.walkD = anim8.newAnimation(sprite.player.sheetGrid('1-7', 4), sprite.player.animCycle * 2)
+--Idle Animations
+sprite.player.idleL = anim8.newAnimation(sprite.player.sheetGrid('1-7', 5), sprite.player.animCycle)
+sprite.player.idleR = anim8.newAnimation(sprite.player.sheetGrid('1-7', 6), sprite.player.animCycle)
+sprite.player.idleU = anim8.newAnimation(sprite.player.sheetGrid('1-7', 7), sprite.player.animCycle)
+sprite.player.idleD = anim8.newAnimation(sprite.player.sheetGrid('1-7', 8), sprite.player.animCycle * 2.5)
+--Other Things
+sprite.player.shadow = anim8.newAnimation(sprite.player.sheetGrid('12-12', 4), sprite.player.animCycle)
+--====--
 sprite.player.current = sprite.player.walkR
 -- HUDs and GUIs
 sprite.gui = {}
@@ -24,12 +26,10 @@ sprite.gui.logo = love.graphics.newImage('as/img/gui/logo.png')
 sprite.hud = {}
 sprite.hud.health = {}
 sprite.hud.health.spriteSheet = love.graphics.newImage('/as/img/hud/health.png')
-sprite.hud.health.grid = anim8.newGrid(16, 16, sprite.hud.health.spriteSheet:getWidth(),
-    sprite.hud.health.spriteSheet:getHeight())
-sprite.hud.health.animCycle = 0.5
-sprite.hud.health.full = anim8.newAnimation(sprite.hud.health.grid('1-2', 1), sprite.hud.health.animCycle)
-sprite.hud.health.half = anim8.newAnimation(sprite.hud.health.grid('1-2', 2), sprite.hud.health.animCycle)
-sprite.hud.health.empty = anim8.newAnimation(sprite.hud.health.grid('1-2', 3), sprite.hud.health.animCycle)
+sprite.hud.health.grid = anim8.newGrid(16, 16, sprite.hud.health.spriteSheet:getWidth(), sprite.hud.health.spriteSheet:getHeight())
+sprite.hud.health.full = anim8.newAnimation(sprite.hud.health.grid('1-1', 1), 1)
+sprite.hud.health.half = anim8.newAnimation(sprite.hud.health.grid('1-1', 2), 1)
+sprite.hud.health.empty = anim8.newAnimation(sprite.hud.health.grid('1-1', 3), 1)
 sprite.hud.health.current = sprite.hud.health.full
 -- Slots
 sprite.hud.slots = {}
@@ -83,4 +83,3 @@ models.plane = g3d.newModel('as/maps/plane.obj', sprite.models.synthground, {-2.
 -- Fonts
 fonts = {}
 fonts.debug_01 = love.graphics.newFont('/as/fonts/basis33_debug.ttf', 16)
-

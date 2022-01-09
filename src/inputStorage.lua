@@ -1,7 +1,8 @@
 input = {}
-input.walkL = {"a", "left"}
-input.walkR = {"d", "right"}
-input.walkD = {"s", "down"}
-input.walkU = {"w", "up"}
+input.player = {}
+input.player.walkL = {"a", "left"}
+input.player.walkR = {"d", "right"}
+input.player.walkD = {"s", "down"}
+input.player.walkU = {"w", "up"}
 input.debugToggle = "f1"
-input.toggleAimMode = '3' --Coresponding to the mouse
+input.player.toggleAimMode = '3' --Coresponding to the mouse

@@ -4,7 +4,7 @@ function hud:draw()
 	--Hearts:
 		for i=1, player.maxHp do
 			local width = sprite.hud.health.spriteSheet:getWidth()
-			local offsetX = (i-1) * (width * size / 2)
+			local offsetX = (i-1) * (width * size)
 			local offsetY = (math.sin(love.timer.getTime() * 3 - i) * (2 * size)) --Cool bouncing heart effect using a sine wave
 
 			if i - player.hp <= player.hp - i then
@@ -36,4 +36,9 @@ function hud:draw()
 			love.graphics.setColor(1, 1, 1, 1)
 				sprite.hud.slots.current:draw(sprite.hud.slots.spriteSheet, 3 * size + offsetX , 150 * size, 0 , size)
 		end
+end
+
+function hud:update(dt)
+	sprite.hud.health.current:update(dt)
+	sprite.hud.slots.current:update(dt)
 end

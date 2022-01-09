@@ -11,7 +11,7 @@ function debug:update(dt)
 		love.graphics.rectangle("fill", 0, 0, 100, 50)
 		--Main debug info
 		love.graphics.setColor(1, 1, 1, 1)
-			
+
 		debug.screen.fps = love.graphics.print("FPS: "..tostring(love.timer.getFPS()),0 ,0)
 
 		debug.screen.playerHp = love.graphics.print("player.hp: "..tostring(player.hp),0 , 10)
@@ -19,8 +19,11 @@ function debug:update(dt)
 		debug.screen.mouseX = love.graphics.print("Mouse X: "..tostring(love.mouse.getX()) , 0, 20)
 
 		debug.screen.mouseY = love.graphics.print("Mouse Y: "..tostring(love.mouse.getY()) , 0, 30)
-			
+
 		love.mouse.setVisible(true)
+
+		local px, py = cam:toCameraCoords(player.collider:getX(), player.collider:getY())
+	 	debug.screen.line = love.graphics.line(px, py, love.mouse.getX(), love.mouse.getY())
 
 	end
 
@@ -31,9 +34,9 @@ function debug:update(dt)
 			debug.isOn = false
 		end
 
-		if key == '=' then
+		if key == '=' and debug.isOn ~= false then
 			player.hp = player.hp + 0.5
-		elseif key == '-' then
+		elseif key == '-' and debug.isOn ~= false then
 			player.hp = player.hp - 0.5
 		end
 	end
@@ -41,16 +44,16 @@ function debug:update(dt)
 	function debug.off()
 
 		love.mouse.setVisible(false)
-		
+
 		debug.screen = nil
 	end
 
 end
 
 function debug:draw()
-	if debug.isOn == true then 
+	if debug.isOn == true then
 		debug.on()
-	elseif debug.isOn == false then 
+	elseif debug.isOn == false then
 		debug.off()
 	end
 end
