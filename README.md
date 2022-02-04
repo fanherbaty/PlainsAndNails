@@ -2,7 +2,7 @@
 
 A TreeHouse Team project made in Lua with the LÖVE game framework
 
-Used libraries:
+Used third-party libraries:
 ===============
 
   * (`wf`) [Windfield](https://github.com/a327ex/windfield): Simplified box2D
