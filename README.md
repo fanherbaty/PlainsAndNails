@@ -1,5 +1,4 @@
 # Plains and Nails (Version Proto 4.2.2) #
-======================================
 
 A TreeHouse Team project made in Lua with the LÖVE game framework
 
