@@ -7,10 +7,11 @@ function start()
 
 	--Libraries:
 		require('lib/scene_menager')
+		require('lib/switch')
 
 		wf = require('lib/windfield')
 		a8 = require('lib/anim8')
-		
+
 		ent_hitboxes = wf.newWorld()
 		world_hitboxes = wf.newWorld()
 
