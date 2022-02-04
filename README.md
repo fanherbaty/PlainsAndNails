@@ -14,3 +14,7 @@ Used libraries:
   * (`g3d`) [Groverburger's 3D engine](https://github.com/groverburger/g3d): Better 3D support for LÖVE
 
   * (`tecs`) [Tiny ECS](https://github.com/bakpakin/tiny-ecs): Lightweight LÖVE ECS
+  
+  * (`cam`) [STALKER-X](https://github.com/a327ex/STALKER-X): Camera for LÖVE
+  
+  * (`sti`) [Simple Tiled Implementation](https://github.com/karai17/Simple-Tiled-Implementation): Import Tiled maps in LÖVE
