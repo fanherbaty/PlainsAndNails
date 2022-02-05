@@ -19,4 +19,4 @@ Used third-party libraries:
 
   * (`lib/sti`) [Simple Tiled Implementation](https://github.com/karai17/Simple-Tiled-Implementation): Import Tiled maps in LÖVE
 
-  * (`lib/switch.lua`) [Switch](https://gist.github.com/FreeBirdLjj/6303864?permalink_comment_id=3400522#gistcomment-3400522) (Gist)
+  * (`lib/switch.lua`) [Switch](https://gist.github.com/FreeBirdLjj/6303864?permalink_comment_id=3400522#gistcomment-3400522) (Gist): Switch statement for Lua
